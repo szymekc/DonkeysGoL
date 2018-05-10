@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace DonkeysGOL.Core.Models
 {
-    class Rules
+   static class Rules
     {
+        static void Overpopulation(ref Space space)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

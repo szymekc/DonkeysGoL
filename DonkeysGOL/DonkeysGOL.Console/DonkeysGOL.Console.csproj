@@ -48,5 +48,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DonkeysGOL.Core\DonkeysGOL.Core.csproj">
+      <Project>{9431b639-4e18-42e3-ad11-f0fe22c8982a}</Project>
+      <Name>DonkeysGOL.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

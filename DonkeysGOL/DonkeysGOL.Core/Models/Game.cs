@@ -8,5 +8,14 @@ namespace DonkeysGOL.Core.Models
 {
     class Game
     {
+         void ApplyRules()
+        {
+            throw new NotImplementedException();
+        }
+
+         void Run()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
