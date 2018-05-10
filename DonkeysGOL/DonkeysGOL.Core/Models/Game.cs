@@ -8,9 +8,7 @@ namespace DonkeysGOL.Core.Models
 {
     public class Game
     {
-
         public Space Space { get; set; }
-
 
          void ApplyRules()
         {
@@ -21,6 +19,5 @@ namespace DonkeysGOL.Core.Models
         {
             throw new NotImplementedException();
         }
-
     }
 }

@@ -13,23 +13,9 @@ namespace DonkeysGOL.Console
 
         static void Main(string[] args)
         {
-            var game = new Game();
-
-
-            game.Space = new Space();
-
-            game.Space.SpaceArray = new bool[5, 4] { { true, false, true, false }, { true, false, true, false }, { true, false, true, false }, { true, false, true, false }, { true, false, true, false } };
-           
-            CrudeRenderer.RenderSpace(game.Space);
-
-
-            var spacedd = new Space();
-
-            spacedd.SpaceArray = new bool[5, 4] { { true, false, true, false }, { true, false, true, false }, { true, false, true, false }, { true, false, true, false }, { true, false, true, false } };
-           
-            CrudeRenderer.RenderSpace(spacedd);
-
+            System.Console.WriteLine("asdaaweawef");
             System.Console.ReadKey();
+
         }
 
 
