@@ -19,7 +19,7 @@ namespace DonkeysGOL.Console.View
             {
                 for (int j = 0; j < space.SpaceArray.GetLength(1) ; j++)
                 {
-                    System.Console.Write(space.SpaceArray[i,j]);
+                    System.Console.Write(space.SpaceArray[i,j] ? "1" : "0");
                 }
                 System.Console.WriteLine("");
             }
