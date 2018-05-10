@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DonkeysGOL.Core.Models
 {
-    class Game
+    public class Game
     {
          void ApplyRules()
         {
