@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DonkeysGOL.WPF", "DonkeysGO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DonkeysGOL.Console", "DonkeysGOL.Console\DonkeysGOL.Console.csproj", "{F5AFE054-576D-4E1F-9DF2-5CF5180C8273}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DonkeysGOL.Tests", "DonkeysGOL.Tests\DonkeysGOL.Tests.csproj", "{30A200B2-FE2B-41F9-8EC1-0E59CFD66116}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{F5AFE054-576D-4E1F-9DF2-5CF5180C8273}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5AFE054-576D-4E1F-9DF2-5CF5180C8273}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5AFE054-576D-4E1F-9DF2-5CF5180C8273}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30A200B2-FE2B-41F9-8EC1-0E59CFD66116}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30A200B2-FE2B-41F9-8EC1-0E59CFD66116}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30A200B2-FE2B-41F9-8EC1-0E59CFD66116}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30A200B2-FE2B-41F9-8EC1-0E59CFD66116}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

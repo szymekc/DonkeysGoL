@@ -13,14 +13,8 @@ namespace DonkeysGOL.Console
 
         static void Main(string[] args)
         {
-            var game = new Game();
 
-            var spacedd = new Space();
 
-            spacedd.SpaceArray = new bool[5, 4] { { true, false, true, false }, { true, false, true, false }, { true, false, true, false }, { true, false, true, false }, { true, false, true, false } };
-           
-            CrudeRenderer.RenderSpace(spacedd);
-            System.Console.ReadKey();
         }
 
 
