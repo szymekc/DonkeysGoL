@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace DonkeysGOL.Core.Models
 {
-    class Space
+   public class Space
     {
-        public bool[][] Array { get; set; }
-
+        public bool [,] SpaceArray { get; set; }
+        
+       
 
         int CountNeighborhood()
         {
@@ -28,7 +29,7 @@ namespace DonkeysGOL.Core.Models
 
         public Space()
         {
-            throw new NotImplementedException();
+            
         }
 
         public Space(string seed)
