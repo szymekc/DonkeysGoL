@@ -13,8 +13,7 @@ namespace DonkeysGOL.Console
 
         static void Main(string[] args)
         {
-            System.Console.WriteLine("asdaaweawef");
-            System.Console.ReadKey();
+
 
         }
 
