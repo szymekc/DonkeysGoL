@@ -15,11 +15,12 @@ namespace DonkeysGOL.Console
         {
             var game = new Game();
 
-            var spacedd = new Space();
+            game.Space = new Space();
 
-            spacedd.SpaceArray = new bool[5, 4] { { true, false, true, false }, { true, false, true, false }, { true, false, true, false }, { true, false, true, false }, { true, false, true, false } };
+            game.Space.SpaceArray = new bool[5, 4] { { true, false, true, false }, { true, false, true, false }, { true, false, true, false }, { true, false, true, false }, { true, false, true, false } };
            
-            CrudeRenderer.RenderSpace(spacedd);
+            CrudeRenderer.RenderSpace(game.Space);
+
             System.Console.ReadKey();
         }
 

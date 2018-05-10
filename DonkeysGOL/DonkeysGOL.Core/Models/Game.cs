@@ -8,6 +8,8 @@ namespace DonkeysGOL.Core.Models
 {
     public class Game
     {
+        public Space Space { get; set; }
+
          void ApplyRules()
         {
             throw new NotImplementedException();
@@ -17,5 +19,8 @@ namespace DonkeysGOL.Core.Models
         {
             throw new NotImplementedException();
         }
+
+
+   
     }
 }
