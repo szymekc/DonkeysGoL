@@ -10,6 +10,7 @@ namespace DonkeysGOL.Console
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
