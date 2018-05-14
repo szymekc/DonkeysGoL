@@ -17,15 +17,6 @@ namespace DonkeysGOL.Core.Models
             throw new NotImplementedException();
         }
 
-        void KillCell()
-        {
-            throw new NotImplementedException();
-        }
-
-        void ReviveCell()
-        {
-            throw new NotImplementedException();
-        }
 
         public Space()
         {
