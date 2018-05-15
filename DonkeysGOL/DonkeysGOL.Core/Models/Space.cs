@@ -25,7 +25,7 @@ namespace DonkeysGOL.Core.Models
                     if (i == x && j == y)
                         continue;
 
-                    if (GetCell(i, j))
+                    if (getCell(i, j))
                         ++count;
                 }
             }
@@ -56,15 +56,15 @@ namespace DonkeysGOL.Core.Models
             InitSpace(rSeed.Next());
         }
 
-        private bool GetCell(int x, int y)
+        private bool getCell(int x, int y)
         {
-            x = AdjustToSize(x, SPACE_SIZE);
-            y = AdjustToSize(y, SPACE_SIZE);
+            x = adjustToSize(x, SPACE_SIZE);
+            y = adjustToSize(y, SPACE_SIZE);
 
             return SpaceArray[x, y];
         }
 
-        private int AdjustToSize(int index, int size)
+        private int adjustToSize(int index, int size)
         {
             if (index >= size)
                 return index % size;
