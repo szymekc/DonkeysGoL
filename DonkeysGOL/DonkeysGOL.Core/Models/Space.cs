@@ -1,20 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Random;
-
 namespace DonkeysGOL.Core.Models
 {
     public class Space
     {
-
-        public const int SPACE_SIZE = 100;
-
         public bool[,] SpaceArray;
 
-        uint CountNeighborhood(int x, int y)
+        
+      
+        public Space()
+        {
+            Random rSeed = new Random();
+            InitSpace(50, rSeed.Next()); //default size is 50x50
+        }
+        public Space(int size)
+        {
+            Random rSeed = new Random();
+            InitSpace(size, rSeed.Next());
+        }
+        public Space(int size, int seed)
+        {
+            InitSpace(size, seed);
+        }
+
+        public uint CountNeighborhood(int x, int y)
         {
             uint count = 0;
 
@@ -33,33 +41,23 @@ namespace DonkeysGOL.Core.Models
             return count;
         }
 
-        void InitSpace(int seed)
+        
+        void InitSpace(int size, int seed)
         {
             Random rGenerator = new Random(seed);
-            SpaceArray = new bool[SPACE_SIZE, SPACE_SIZE];
-            for (int i = 0; i < SPACE_SIZE; i++)
+            SpaceArray = new bool[size, size];
+            for (int i = 0; i < size; i++)
             {
-                for (int j = 0; j < SPACE_SIZE; j++)
+                for (int j = 0; j < size; j++)
                 {
                     SpaceArray[i, j] = rGenerator.NextDouble() > 0.5;
                 }
             }
-        }
-        public Space(int seed)
-        {
-            InitSpace(seed);
-        }
-
-        public Space()
-        {
-            Random rSeed = new Random();
-            InitSpace(rSeed.Next());
-        }
-
+        }        
         private bool getCell(int x, int y)
         {
-            x = adjustToSize(x, SPACE_SIZE);
-            y = adjustToSize(y, SPACE_SIZE);
+            x = adjustToSize(x, SpaceArray.GetLength(0));
+            y = adjustToSize(y, SpaceArray.GetLength(1));
 
             return SpaceArray[x, y];
         }
