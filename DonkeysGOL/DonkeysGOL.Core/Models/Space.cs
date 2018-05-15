@@ -13,8 +13,8 @@ namespace DonkeysGOL.Core.Models
         public const int SPACE_SIZE = 100;
 
         public bool[,] SpaceArray;
-
-        int CountNeighborhood()
+       
+        public int CountNeighborhood(int x, int y)
         {
             throw new NotImplementedException();
         }
