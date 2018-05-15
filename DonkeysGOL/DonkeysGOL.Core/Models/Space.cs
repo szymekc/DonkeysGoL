@@ -3,15 +3,9 @@ namespace DonkeysGOL.Core.Models
 {
     public class Space
     {
-
-        public const int SPACE_SIZE = 100;
-
         public bool[,] SpaceArray;
-       
-        public int CountNeighborhood(int x, int y)
-        {
-            throw new NotImplementedException();
-        }
+
+        
       
         public Space()
         {
@@ -28,7 +22,12 @@ namespace DonkeysGOL.Core.Models
             InitSpace(size, seed);
         }
 
-        public bool[,] SpaceArray;
+        public int CountNeighborhood(int x, int y)
+        {
+            throw new NotImplementedException();
+        }
+        
+        
         void InitSpace(int size, int seed)
         {
             Random rGenerator = new Random(seed);
