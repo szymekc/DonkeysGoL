@@ -66,14 +66,10 @@ namespace DonkeysGOL.Core.Models
 
         private int adjustToSize(int index, int size)
         {
-            if (index >= size)
-                return index % size;
-            else if ((index % size) == 0)
-                return 0;
-            else if (index < 0)
-                return size + (index % size);
+            if (index >= 0)
+                return (index % size);
             else
-                return index;
+                return size + (index % size);
         }
     }
 }
