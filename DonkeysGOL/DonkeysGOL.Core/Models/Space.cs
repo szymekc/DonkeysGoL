@@ -14,10 +14,25 @@ namespace DonkeysGOL.Core.Models
 
         public bool[,] SpaceArray;
 
-        int CountNeighborhood()
+        uint CountNeighborhood(int x, int y)
         {
-            throw new NotImplementedException();
+            uint count = 0;
+
+            for (int i = x - 1; i <= x + 1; ++i)
+            {
+                for (int j = y - 1; j <= y + 1; ++y)
+                {
+                    if (i == x && j == y)
+                        continue;
+
+                    if (GetCell(i, j))
+                        ++count;
+                }
+            }
+
+            return count;
         }
+
         void InitSpace(int seed)
         {
             Random rGenerator = new Random(seed);
@@ -41,5 +56,24 @@ namespace DonkeysGOL.Core.Models
             InitSpace(rSeed.Next());
         }
 
+        private bool GetCell(int x, int y)
+        {
+            x = AdjustToSize(x, SPACE_SIZE);
+            y = AdjustToSize(y, SPACE_SIZE);
+
+            return SpaceArray[x, y];
+        }
+
+        private int AdjustToSize(int index, int size)
+        {
+            if (index >= size)
+                return index % size;
+            else if ((index % size) == 0)
+                return 0;
+            else if (index < 0)
+                return size + (index % size);
+            else
+                return index;
+        }
     }
 }
