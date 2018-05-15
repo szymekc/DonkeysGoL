@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace DonkeysGOL.Console.View
 {
@@ -13,15 +14,25 @@ namespace DonkeysGOL.Console.View
         /// <summary>
         /// ONLY FOR DEBUGGING PURPOSES, IT WILL BE CHANGED, DONT RELY ON IT!
         /// </summary>
+        /// 
+
         public static void RenderSpace ( Space space )
         {
-            for (int i = 0; i < space.SpaceArray.GetLength(0); i++)
+            Timer timer = new System.Timers.Timer(10000); //change period
+            timer.Elapsed += TickBoard;
+            timer.Enabled = true;
+            void TickBoard(object source, ElapsedEventArgs e)
             {
-                for (int j = 0; j < space.SpaceArray.GetLength(1) ; j++)
+                System.Console.Clear();
+                for (int i = 0; i < space.SpaceArray.GetLength(0); i++)
                 {
-                    System.Console.Write(space.SpaceArray[i,j] ? "1" : "0");
+                    for (int j = 0; j < space.SpaceArray.GetLength(1); j++)
+                    {
+                        System.Console.Write(space.SpaceArray[i, j] ? "■" : " ");
+                        System.Console.Write(" ");
+                    }
+                    System.Console.WriteLine("");
                 }
-                System.Console.WriteLine("");
             }
 
 
