@@ -24,9 +24,21 @@ namespace DonkeysGOL.Core.Models
 
         public uint CountNeighborhood(int x, int y)
         {
-            checkIfCoordsAreValid(x, y, "CountNeighborhood");
+            uint count = 0;
 
-            return count(x, y);
+            for (int i = x - 1; i <= x + 1; ++i)
+            {
+                for (int j = y - 1; j <= y + 1; ++j)
+                {
+                    if (i == x && j == y)
+                        continue;
+
+                    if (getCell(i, j))
+                        ++count;
+                }
+            }
+
+            return count;
         }
 
         
@@ -43,36 +55,6 @@ namespace DonkeysGOL.Core.Models
             }
         }
         
-        private void checkIfCoordsAreValid(int x, int y, string methodName)
-        {
-            string errorMessage = "Wrong parameter's value in " + methodName + " method!";
-
-            if (x < 0 || x >= SpaceArray.GetLength(0))
-                throw new ArgumentOutOfRangeException("x", errorMessage);
-
-            if (y < 0 || y >= SpaceArray.GetLength(1))
-                throw new ArgumentOutOfRangeException("y", errorMessage);
-        }
-
-        private uint count(int x, int y)
-        {
-            uint counter = 0;
-
-            for (int i = x - 1; i <= x + 1; ++i)
-            {
-                for (int j = y - 1; j <= y + 1; ++j)
-                {
-                    if (i == x && j == y)
-                        continue;
-
-                    if (getCell(i, j))
-                        ++counter;
-                }
-            }
-
-            return counter;
-        }
-
         private bool getCell(int x, int y)
         {
             x = adjustToSize(x, SpaceArray.GetLength(0));
@@ -83,7 +65,7 @@ namespace DonkeysGOL.Core.Models
 
         private int adjustToSize(int index, int size)
         {
-            return (index + size) % size;              
+            return (size + (index % size)) % size;
         }
     }
 }
