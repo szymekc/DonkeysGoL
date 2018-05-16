@@ -45,7 +45,7 @@ namespace DonkeysGOL.Core.Models
         
         private void checkIfCoordsAreValid(int x, int y, string methodName)
         {
-            string errorMessage = "Wrong parameter's value in " + methodName;
+            string errorMessage = "Wrong parameter's value in " + methodName + " method!";
 
             if (x < 0 || x >= SpaceArray.GetLength(0))
                 throw new ArgumentOutOfRangeException("x", errorMessage);
