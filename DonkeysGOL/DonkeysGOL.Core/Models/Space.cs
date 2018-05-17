@@ -22,11 +22,25 @@ namespace DonkeysGOL.Core.Models
             InitSpace(size, seed);
         }
 
-        public int CountNeighborhood(int x, int y)
+        public uint CountNeighborhood(int x, int y)
         {
-            throw new NotImplementedException();
+            uint count = 0;
+
+            for (int i = x - 1; i <= x + 1; ++i)
+            {
+                for (int j = y - 1; j <= y + 1; ++j)
+                {
+                    if (i == x && j == y)
+                        continue;
+
+                    if (getCell(i, j))
+                        ++count;
+                }
+            }
+
+            return count;
         }
-        
+
         
         void InitSpace(int size, int seed)
         {
@@ -39,6 +53,19 @@ namespace DonkeysGOL.Core.Models
                     SpaceArray[i, j] = rGenerator.NextDouble() > 0.5;
                 }
             }
-        }        
+        }
+        
+        private bool getCell(int x, int y)
+        {
+            x = adjustToSize(x, SpaceArray.GetLength(0));
+            y = adjustToSize(y, SpaceArray.GetLength(1));
+
+            return SpaceArray[x, y];
+        }
+
+        private int adjustToSize(int index, int size)
+        {
+            return (size + (index % size)) % size;
+        }
     }
 }
