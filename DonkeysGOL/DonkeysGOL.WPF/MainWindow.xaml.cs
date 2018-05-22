@@ -41,10 +41,12 @@ namespace DonkeysGOL.WPF
 
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!Int32.TryParse(seedBox.Text, out int seed))
+            int seed, size;
+
+            if (!Int32.TryParse(seedBox.Text, out seed))
                 seed = rand.Next();
             seedBox.Text = seed.ToString();
-            if (!Int32.TryParse(spaceSize.Text, out int size))
+            if (!Int32.TryParse(spaceSize.Text, out size))
                 size = game.Space.SpaceArray.GetLength(0);
             spaceSize.Text = size.ToString();
             game.Space = new Core.Models.Space(size, seed);
@@ -54,7 +56,9 @@ namespace DonkeysGOL.WPF
 
         private void RunButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!Int32.TryParse(iterationCount.Text, out int n))
+            int n;
+
+            if (!Int32.TryParse(iterationCount.Text, out n))
                 n = 0;
             iterationCount.Text = n.ToString();
             //TODO run iterations
