@@ -1,55 +1,111 @@
 ﻿using System;
 using DonkeysGOL.Core.Models;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit;
 using NUnit.Framework;
 
 namespace DonkeysGOL.Tests.DonkeysGOL.Core.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class SpaceTests
     {
         private Space space;
-        private PrivateObject privObj;
+        
 
-        [TestInitialize]
+        [SetUp]
         public void TestInitialize()
         {
             space = new Space(100);
-            privObj = new PrivateObject(space);
+            setFixedValuesInSpaceArray();
         }
 
-        [TestMethod]
-        public void AdjustToSizeTooSmallElementTest()
+        [Test]
+        public void GetCellWithTooSmallParameters()
         {
-            var retVal = privObj.Invoke("adjustToSize", new object[]{-10, 100});
-            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(retVal, 90);
+            Assert.AreEqual(space.GetCell(-10, -30), space.SpaceArray[90, 70]);
         }
 
-        [TestMethod]
-        public void AdjustToSizeTooBigElementTest()
+        [Test]
+        public void GetCellWithValidParameters()
         {
-            var retVal = privObj.Invoke("adjustToSize", new object[] { 150, 100 });
-            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(retVal, 50);
+            Assert.AreEqual(space.GetCell(10, 10), space.SpaceArray[10, 10]);
         }
 
-        [TestMethod]
-        public void GetCellTest()
+        [Test]
+        public void GetCellWithTooBigParameters()
         {
-            var retVal = privObj.Invoke("getCell", new object[] { 10, 10 });
-            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(retVal, space.SpaceArray[10, 10]);
+            Assert.AreEqual(space.GetCell(150, 111), space.SpaceArray[50,11]);
         }
 
-        [TestMethod]
-        public void CountNeighborhoodTest()
+        [Test]
+        public void CountNeighborhoodForNotBoundaryCell()
         {
+            Space tempSpace = new Space(4);
+
             for (int i = 1; i <= 3; ++i)
                 for (int j = 1; j <= 3; ++j)
-                    space.SpaceArray[i, j] = true;
+                    tempSpace.SpaceArray[i, j] = true;
 
-            Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual(8u, space.CountNeighborhood(2, 2));
+            Assert.AreEqual(8u, tempSpace.CountNeighborhood(2, 2));
         }
 
+        [Test]
+        public void CountNeighborhoodForVerticalBoundaryCell()
+        {
+            Space tempSpace = createTempSpaceForTest();
+
+            Assert.AreEqual(6u, tempSpace.CountNeighborhood(2, 0));
+        }
+
+        [Test]
+        public void CountNeighborhoodForHorizontalBoundaryCell()
+        {
+            Space tempSpace = createTempSpaceForTest();
+
+            Assert.AreEqual(6u, tempSpace.CountNeighborhood(0, 1));
+        }
+
+        [Test]
+        public void CountNeighborhoodForCornerCell()
+        {
+            Space tempSpace = createTempSpaceForTest();
+
+            Assert.AreEqual(7u, tempSpace.CountNeighborhood(3, 3));
+        }
+
+
+        private void setFixedValuesInSpaceArray()
+        {
+            for (int i = 0; i < 100; ++i)
+            {
+                for (int j = 0; j < 100; ++j)
+                {
+                    if (((i * 100 + j) % 3) == 0)
+                        space.SpaceArray[i, j] = true;
+                    else
+                        space.SpaceArray[i, j] = false;
+                }
+            }
+        }
+
+        private Space createTempSpaceForTest()
+        {
+            Space temp = new Space(4);
+
+            for (int i = 0; i < 4; ++i)
+            {
+                for (int j = 0; j < 4; ++j)
+                {
+                    if (i == 0 || i == 3)
+                        temp.SpaceArray[i, j] = true;
+                    else if (j == 0 || j == 3)
+                        temp.SpaceArray[i, j] = true;
+                    else
+                        temp.SpaceArray[i, j] = false;
+                }
+            }
+
+            return temp;
+        }
 
     }
 }

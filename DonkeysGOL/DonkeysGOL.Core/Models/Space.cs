@@ -33,7 +33,7 @@ namespace DonkeysGOL.Core.Models
                     if (i == x && j == y)
                         continue;
 
-                    if (getCell(i, j))
+                    if (GetCell(i, j))
                         ++count;
                 }
             }
@@ -55,7 +55,7 @@ namespace DonkeysGOL.Core.Models
             }
         }
         
-        private bool getCell(int x, int y)
+        public bool GetCell(int x, int y)
         {
             x = adjustToSize(x, SpaceArray.GetLength(0));
             y = adjustToSize(y, SpaceArray.GetLength(1));
