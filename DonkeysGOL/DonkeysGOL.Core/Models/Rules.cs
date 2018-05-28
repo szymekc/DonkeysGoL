@@ -21,7 +21,7 @@ namespace DonkeysGOL.Core.Models
 
         public static Nullable<bool> NextGeneration(int x, int y, ref Space space)
         {
-            int neighbours = space.CountNeighborhood(x, y);
+            uint neighbours = space.CountNeighborhood(x, y);
             if (space.SpaceArray[x, y] && (neighbours == 2 || neighbours == 3))
                 return true;
             else
